@@ -1,5 +1,3 @@
-Here's a reference table for standard C data types (typical sizes on a 64-bit system, e.g., GCC/Linux — sizes can vary by compiler/platform):
-
 ## Integer Types
 
 | Data Type | Size (bytes) | Size (bits) | Range in Powers of 2 | Range (Values) |
@@ -44,5 +42,3 @@ Maximum = 2^n - 1
 ```
 
 **Note:** Exact sizes of `int`, `long`, etc. are *not fixed by the C standard* — they're compiler/platform dependent (this table reflects the common **LP64** model used on 64-bit Linux/macOS with GCC/Clang). On Windows (LLP64), `long` is typically 4 bytes instead of 8. For guaranteed-size integers, use `<stdint.h>` types like `int8_t`, `uint16_t`, `int32_t`, `int64_t`, etc.
-
-Want me to include the `<stdint.h>` fixed-width types table too, or show how to verify these sizes using `sizeof()` and `limits.h` on your own system?
