@@ -14,12 +14,12 @@ Write a C program to read a number `N` and print all numbers from `1` to `N`.
 
 int main()
 {
-    int n;
+    int n,i;
 
     printf("Enter N: ");
     scanf("%d", &n);
 
-    for (int i = 1; i <= n; i++)
+    for (i = 1; i <= n; i++)
     {
         printf("%d\n", i);
     }
