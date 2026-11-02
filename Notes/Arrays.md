@@ -403,3 +403,145 @@ Important observations:
 6. `array[i]` retrieves the value at the specified index.
 
 
+## Output
+
+```
+Press any key to perform array traversal and display its elements:
+
+arr[0] = 2
+
+arr[1] = 6
+
+arr[2] = 7
+
+arr[3] = 3
+
+arr[4] = 8
+```
+
+## Program analysis
+
+| Key Statement               | Purpose                                                                              |
+| --------------------------- | ------------------------------------------------------------------------------------ |
+| `void traverse(int*, int);` | Declares the prototype for the `traverse()` function for traversing an array         |
+| `traverse(arr,N);`          | Calls the `traverse()` function for traversing the array `arr` containing N elements |
+| `for(i=0;i<size;i++)`       | Uses the for loop to access the array elements with each iteration                   |
+
+Tip: While traversing an array, the index identifier should be updated carefully so that array out of bound situation does not arise. In this situation, the program tries to access a location outside of the reserved memory block, which is an illegal operation.
+
+# 4.5 INSERTION AND DELETION
+
+Insertion is the task of adding an element into an existing array while deletion is the task of removing an element from the array. The point of insertion or deletion that is the position where an element is to be inserted or deleted holds vital importance, as we shall see in the subsequent sections.
+
+## 4.5.1 Insertion
+
+If an element is to be inserted at the end of the array, then it can be simply achieved by storing the new element one position to the right of the last element. However, the array must have vacant positions at the end for this to be feasible. Alternatively, if an element is required to be inserted at the middle, then this will require all the subsequent elements to be moved one place to the right. Figure 4.2 depicts the insertion of an element into an array.
+
+Check Point
+
+1. What is array traversal?
+
+   Ans. It is the task of visiting the array elements and storing or retrieving values from it.
+2. What is the need for array traversal?
+
+   Ans. It is required in almost all array related operations, such as sorting, searching, printing, etc.
+
+[Array Data Structure - Types, Applications, Implementation](https://images.openai.com/static-rsc-4/uVcuSiR0nvx2ZSMR08MGs5pNjO4ysMtb1N2yQnytuUCdtUKEuRDS5xvlCO4i1ivgwy0lHygJHcWTz2CMuv40PWooF0k4GeG8hoHwoA5rFsiDv6P-pW6Vivtxu8HUfuuwvoAv2w4nVD65819zNscV89facnZgVEmg_Hc-QOPx7f4?purpose=inline)
+
+[masaischool.com](https://www.masaischool.com/blog/array-data-structure-explained-with-examples/?utm_source=chatgpt.com)
+
+Fig. 4.2 – Array insertion
+
+## Algorithm
+
+Example 4.3 Write an algorithm to perform array insertion.
+
+The following algorithm inserts an element P at index location k in the array A[N], where k= k\
+Step 4: Set A[i+1] = A[i]\
+Step 5: Set i = i - 1\
+Step 6: Set A[k] = P\
+Step 7: Set N = N + 1\
+Step 8: Stop
+
+````
+
+## Program
+
+**Example 4.4** Write a C program to perform array insertion.
+
+Program 4.2 performs array insertion and prints the updated array elements as output. It uses the algorithm depicted in Example 4.3.
+
+**Program 4.2 – Array insertion**
+
+```c
+#include <stdio.h>
+#include <conio.h>
+
+void main()
+{
+    int array[10] = {-1, 3, 5, 22, 77};
+
+    int i, k, N, P;
+    clrscr();
+
+    N = 5;
+
+    printf("The contents of the array are:\n");
+    for(i=0;i<N;i++)
+        printf("array[%d] = %d\n",i,array[i]); /*Printing array elements*/
+
+    printf("\nEnter the element to be inserted:\n");
+    scanf("%d",&P);
+
+    printf("\nEnter the index location where %d is to be inserted:\n", P);
+    scanf("%d",&k);
+
+    for(i=N;i>=k;i--)
+        array[i+1]=array[i];
+
+    array[k] = P;
+    N = N + 1;
+
+    printf("\nThe contents of the array after array insertion are:\n");
+    for(i=0;i<N;i++)
+        printf("array[%d] = %d\n",i,array[i]); /*Printing array elements after array insertion*/
+
+    getch();
+}
+````
+
+## Output
+
+```
+The contents of the array are:
+array[0] = -1
+array[1] = 3
+array[2] = 5
+array[3] = 22
+array[4] = 77
+
+Enter the element to be inserted:
+19
+
+Enter the index location where 19 is to be inserted:
+1
+
+The contents of the array after array insertion are:
+array[0] = -1
+array[1] = 19
+array[2] = 3
+array[3] = 5
+array[4] = 22
+array[5] = 77
+```
+
+Important explanation of insertion:
+
+When inserting an element at a particular index:
+
+1. Start from the last existing element.
+2. Move each element one position to the right.
+3. Continue until the required index is reached.
+4. Insert the new element at that index.
+5. Increase the array's logical size by 1.
+
