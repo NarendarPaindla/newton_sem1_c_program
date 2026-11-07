@@ -3854,7 +3854,3 @@ int main()
     return 0;
 }
 ```
-
-This gives students an immediate understanding of why strings are needed.
-
-My teaching recommendation: Spend more time on the null character, character-array indexing, and string traversal. These three concepts are the foundation for almost every string program. Don't rush into `strcpy()`, `strcat()` and `strcmp()` before students understand how characters are stored and accessed.
